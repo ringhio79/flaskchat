@@ -8,16 +8,13 @@
 </head>
 <body>
     
-    <h1> Flask Chat</h1>
-    <ul>
-       {% for message in chat_history %}
-       <p>{{message}}</p>
-       {% endfor %}
-    </ul>
-    <form method="POST" action="/add">
-        <input type="text" name="message"/>
-        
-        <input type="submit"/>
+    <h1>Log in Page</h1>
+    
+    <p>Please enter username and hit 'Join'</p>
+    <form action="/join">
+        <input type="text" name="username"/>
+       
+        <input type="submit" value="Join"/>
     </form>
     
 </body>

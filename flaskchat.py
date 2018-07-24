@@ -10,14 +10,24 @@ chat_history=[
     ]
 
 @app.route("/")
-def show_hi():
-    return render_template("index.html", chat_history=chat_history)
+def show_join():
+    return render_template("join.html")
+    
+@app.route("/join")
+def do_join():
+    username = request.args['username']
+    return redirect("/chat/" + username)
 
-@app.route("/add", methods=['POST'])
+@app.route("/chat/<username>")
+def show_chat(username):
+    return render_template("chat.html", chat_history=chat_history, username=username)
+
+@app.route("/new", methods=['POST'])
 def add_item():
-    message = request.form["message"]
-    chat_history.append(message)
-    return redirect("/")
+    message = request.form['message']
+    username= request.form['username']
+    chat_history.append(username + ": " + message)
+    return redirect("/chat/username")
 
 
 if __name__ == "__main__":
