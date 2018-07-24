@@ -9,12 +9,14 @@
 <body>
     
     <h1> Flask Chat</h1>
-    <ul>
+    
        {% for message in chat_history %}
        <p>{{message}}</p>
        {% endfor %}
-    </ul>
-    <form method="POST" action="/new">
+       
+       <hr>
+       
+    <form method="POST" action="/new", "/tags/brexit">
         <input type="text" name="message"/>
          <input type="hidden" name="username" value="{{username}}"/>
         <input type="submit"/>
