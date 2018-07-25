@@ -10,13 +10,21 @@
     
     <h1> Flask Chat</h1>
     
+    <p>tags</p>
+    
+    {% for tag in tags %}
+    <a href="/chat/{{username}}/tags/{{tag}}">#{{tag}}</a>
+    {% endfor %}
+    
+    <hr>
+    
        {% for message in chat_history %}
        <p>{{message}}</p>
        {% endfor %}
        
        <hr>
        
-    <form method="POST" action="/new", "/tags/brexit">
+    <form method="POST" action="/new">
         <input type="text" name="message"/>
          <input type="hidden" name="username" value="{{username}}"/>
         <input type="submit"/>

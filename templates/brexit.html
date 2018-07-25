@@ -20,9 +20,9 @@
     
     
     <ul>
-        {% block content%}
-        <li>{{tag_messages}}</li>
-        {% endblock %}
+        {% for message in tag_messages %}
+        <li>{{message}}</li>
+        {% endfor %}
     </ul>
     
     
